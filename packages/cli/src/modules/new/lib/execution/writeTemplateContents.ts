@@ -63,7 +63,7 @@ export async function writeTemplateContents(
     }
 
     for (const file of template.files) {
-      const destPath = resolvePath(targetDir, file.path);
+      const destPath = resolvePath(targetDir, templater.template(file.path));
       await fs.ensureDir(dirname(destPath));
 
       let content =
